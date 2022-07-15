@@ -7,9 +7,13 @@ use App\Race;
 
 $race = new Race();
 
-$bike1 = new Bike('Merida 1');
-$race->addBike($bike1);
+$race->addBike(new Bike('GT 1', Bike::BMX));
+$race->addBike(new Bike('Haro 1', Bike::BMX));
+$race->addBike(new Bike('Trek 1', Bike::MOUNTAINBIKE));
+$race->addBike(new Bike('Trek 2', Bike::MOUNTAINBIKE));
+$race->addBike(new Bike('Merida 1', Bike::MOUNTAINBIKE));
+$race->addBike(new Bike('GT 1', Bike::BMX));
 
 $race->run();
 
-print_r($race->getBikes());
+//print_r($race->getBikes());
