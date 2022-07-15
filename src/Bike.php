@@ -4,8 +4,10 @@ namespace App;
 
 class Bike
 {
-    public function __construct()
+    private string $name;
+
+    public function __construct(string $name)
     {
-        echo "Bike class imported";
+        $this->name = $name;
     }
 }
