@@ -4,16 +4,21 @@ namespace App;
 
 class Bike
 {
-    private string $name;
-    private string $type;
-
     const BMX = 'BMX';
     const MOUNTAINBIKE = 'Mountain Bike';
+    private string $name;
+    private string $type;
+    private float $distance = 0;
 
     public function __construct(string $name, string $type)
     {
         $this->name = $name;
         $this->type = $type;
+    }
+
+    public function ride()
+    {
+        return $this->distance += rand(10, 30) * 20;
     }
 
     /**
@@ -32,6 +37,13 @@ class Bike
         return $this->type;
     }
 
+    /**
+     * @return float|int
+     */
+    public function getDistance()
+    {
+        return $this->distance;
+    }
 
 
 }

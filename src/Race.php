@@ -7,6 +7,7 @@ class Race
     private array $bikes;
     private Bike $bike;
     private int $tour = 5;
+    private float $distance = 0;
 
     public function __construct()
     {
@@ -18,7 +19,7 @@ class Race
         $this->displayTourInfo();
     }
 
-    private function displayPlayerInfo()
+    private function displayPlayerInfo(): void
     {
         $bikes = $this->getBikes();
 
@@ -33,8 +34,6 @@ class Race
         }
     }
 
-
-
     /**
      * @return array
      */
@@ -43,17 +42,32 @@ class Race
         return $this->bikes;
     }
 
-    public function addBike(Bike $bike)
-    {
-        $this->bikes[] = $bike;
-    }
-
-    private function displayTourInfo()
+    private function displayTourInfo(): void
     {
         echo "<h2>Race info: </h2>";
 
-        foreach(range(1, $this->tour) as $number) {
-            echo sprintf("Tour number: %d starts! <br>", $number);
+        foreach (range(1, $this->tour) as $number) {
+            echo sprintf("<br> <strong>Tour number: %d starts!</strong> <br>", $number);
+            $this->tour();
         }
+    }
+
+    private function tour(): void
+    {
+        $bikes = $this->getBikes();
+
+        foreach ($bikes as $bike) {
+            $bike->ride();
+            echo sprintf(
+                "<br> Bike %s  traveled: %d m<br>",
+                $bike -> getName(),
+                $bike->getDistance()
+            );
+        }
+    }
+
+    public function addBike(Bike $bike): void
+    {
+        $this->bikes[] = $bike;
     }
 }
