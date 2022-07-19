@@ -2,7 +2,7 @@
 
 namespace App;
 
-abstract class AbstractBike
+abstract class AbstractBike implements Bike
 {
     protected string $name;
     protected string $type;
@@ -14,7 +14,7 @@ abstract class AbstractBike
         $this->name = $name;
     }
 
-    public function ride()
+    public function ride() : float
     {
         return $this->distance += rand(10, 20) * $this->getMaxSpeed();
     }

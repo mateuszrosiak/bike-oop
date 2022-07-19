@@ -9,14 +9,12 @@ use App\Race;
 
 $race = new Race();
 
-$race->addBike(new Bmx('GT 1'));
-$race->addBike(new Bmx('Haro 1'));
-$race->addBike(new MountainBike('Trek 1'));
-$race->addBike(new MountainBike('Trek 2'));
-$race->addBike(new MountainBike('Merida 1'));
-$race->addBike(new Bmx('GT 2'));
-
-$race->addBike(BikeFactory::createBike(Bmx::class, 'Test'));
+$race->addBike(BikeFactory::createBike(Bmx::class, 'GT 1'));
+$race->addBike(BikeFactory::createBike(Bmx::class, 'Haro 1'));
+$race->addBike(BikeFactory::createBike(MountainBike::class, 'Trek 1'));
+$race->addBike(BikeFactory::createBike(MountainBike::class, 'Trek 2'));
+$race->addBike(BikeFactory::createBike(MountainBike::class, 'Merida 1'));
+$race->addBike(BikeFactory::createBike(Bmx::class, 'GT 2'));
 
 $race->run();
 

@@ -68,7 +68,7 @@ class Race
         }
     }
 
-    public function addBike(AbstractBike $bike): void
+    public function addBike(Bike $bike): void
     {
         $this->bikes[] = $bike;
     }
