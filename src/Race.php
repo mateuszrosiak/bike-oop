@@ -5,9 +5,8 @@ namespace App;
 class Race
 {
     private array $bikes;
-    private Bike $bike;
+    private AbstractBike $bike;
     private int $tour = 5;
-    private float $distance = 0;
 
     public function __construct()
     {
@@ -47,7 +46,10 @@ class Race
         echo "<h2>Race info: </h2>";
 
         foreach (range(1, $this->tour) as $number) {
-            echo sprintf("<br> <strong>Tour number: %d starts!</strong> <br>", $number);
+            echo sprintf(
+                "<br> <strong>Tour number: %d starts!</strong> <br>",
+                $number
+            );
             $this->tour();
         }
     }
@@ -60,13 +62,13 @@ class Race
             $bike->ride();
             echo sprintf(
                 "<br> Bike %s  traveled: %d m<br>",
-                $bike -> getName(),
+                $bike->getName(),
                 $bike->getDistance()
             );
         }
     }
 
-    public function addBike(Bike $bike): void
+    public function addBike(AbstractBike $bike): void
     {
         $this->bikes[] = $bike;
     }

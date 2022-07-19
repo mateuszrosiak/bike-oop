@@ -2,13 +2,12 @@
 
 namespace App;
 
-class Bike
+class AbstractBike
 {
-    const BMX = 'BMX';
-    const MOUNTAINBIKE = 'Mountain Bike';
-    private string $name;
-    private string $type;
+    protected string $name;
+    protected string $type;
     private float $distance = 0;
+    protected int $maxSpeed;
 
     public function __construct(string $name, string $type)
     {
@@ -18,7 +17,7 @@ class Bike
 
     public function ride()
     {
-        return $this->distance += rand(10, 30) * 20;
+        return $this->distance += rand(10, 20) * $this->getMaxSpeed();
     }
 
     /**
@@ -45,5 +44,11 @@ class Bike
         return $this->distance;
     }
 
-
+    /**
+     * @return int
+     */
+    public function getMaxSpeed(): int
+    {
+        return $this->maxSpeed;
+    }
 }
