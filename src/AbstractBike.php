@@ -2,17 +2,16 @@
 
 namespace App;
 
-class AbstractBike
+abstract class AbstractBike
 {
     protected string $name;
     protected string $type;
     private float $distance = 0;
     protected int $maxSpeed;
 
-    public function __construct(string $name, string $type)
+    public function __construct(string $name)
     {
         $this->name = $name;
-        $this->type = $type;
     }
 
     public function ride()
