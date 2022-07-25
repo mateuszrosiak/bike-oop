@@ -7,9 +7,11 @@ class Race
     private array $bikes;
     private AbstractBike $bike;
     private int $tour = 5;
+    private Uphill $uphill;
 
-    public function __construct()
+    public function __construct(Uphill $uphill)
     {
+        $this->uphill = $uphill;
     }
 
     public function run(): void
@@ -57,6 +59,7 @@ class Race
     private function tour(): void
     {
         $bikes = $this->getBikes();
+        $this->uphill->randomUphill();
 
         foreach ($bikes as $bike) {
             $bike->ride();

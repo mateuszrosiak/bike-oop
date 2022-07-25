@@ -5,10 +5,7 @@ namespace App;
 class MountainBike extends AbstractBike
 {
     protected string $type = 'Mountain Bike';
-    protected int $maxSpeed = 55;
+    protected int $maxSpeed = 40;
 
-    public function __construct(string $name)
-    {
-        $this->name = $name;
-    }
+
 }

@@ -6,7 +6,7 @@ abstract class AbstractBike implements Bike
 {
     protected string $name;
     protected string $type;
-    private float $distance = 0;
+    protected float $distance = 0;
     protected int $maxSpeed;
 
     public function __construct(string $name)
