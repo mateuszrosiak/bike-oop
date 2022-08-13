@@ -18,6 +18,7 @@ class Race
     {
         $this->displayPlayerInfo();
         $this->displayTourInfo();
+        $this->displayWinners();
     }
 
     private function displayPlayerInfo(): void
@@ -71,9 +72,29 @@ class Race
         }
     }
 
+    private function displayWinners(): void
+    {
+        echo "<br>" . "<h3>Winners of the race are: </h3>" . "<br>";
+
+        $winners = [];
+
+        $winners = $this->getBikes();
+
+        usort($winners, function ($object1, $object2) {
+            return $object1->getDistance() < $object2->getDistance();
+        });
+
+        foreach ($winners as $index=>$winner) {
+            echo sprintf("Place %d: %s (type: %s) with distance %d <br>", $index+1, $winner->getName(), $winner->getType(), $winner->getDistance());
+        }
+
+
+    }
+
     public function addBike(Bike $bike): void
     {
         $this->bikes[] = $bike;
     }
+
 
 }

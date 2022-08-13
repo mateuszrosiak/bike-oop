@@ -2,9 +2,9 @@
 
 namespace App;
 
-class RacingBike extends AbstractBike
+class RacingBike extends AbstractBike implements Bike
 {
-    protected string $type = 'BMX';
+    protected string $type = 'Racing Bike';
     protected int $maxSpeed = 55;
 
     public function ride(): float
